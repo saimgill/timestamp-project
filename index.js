@@ -27,11 +27,11 @@ app.get("/api/:date", function (req, res) {
     date = new Date(req.params.date)
     unixTime = date * 1
 
-    res.json({unix: unixTime, utc: date.toString()})
+    res.json({unix: unixTime, utc: date.toGMTString()})
   }
   else {
     unixTime = parseInt(req.params.date)
-    date = new Date(unixTime).toString();
+    date = new Date(unixTime).toGMTString();
 
     res.json({unix: unixTime, utc: date})
   }
